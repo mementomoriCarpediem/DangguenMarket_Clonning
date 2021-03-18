@@ -1,21 +1,32 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+
+import BottomNav from './src/navigations/BottomNav';
+
+function App() {
+  let [fontsLoaded] = useFonts({
+    JejuMyeongjo: require('./assets/fonts/JejuMyeongjoOTF.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <BottomNav />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

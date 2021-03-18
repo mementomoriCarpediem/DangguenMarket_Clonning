@@ -1,0 +1,22 @@
+{
+  "data": {
+    "productId": 1,
+    "images": [
+      "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg",
+      "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?cs=srgb&dl=pexels-pixabay-274973.jpg&fm=jpg",
+      "https://images.pexels.com/photos/368893/pexels-photo-368893.jpeg?cs=srgb&dl=pexels-mohamed-almari-368893.jpg&fm=jpg"
+    ],
+    "createdBy": "하하호호",
+    "createAt": "2021-03-23",
+    "town": "대치4동",
+    "mannerTemp": "42.5",
+    "title": "컵세트",
+    "price": 30000,
+    "isPossibleNego": false,
+    "category": "디지털/가전",
+    "description": "",
+    "likeCount": 23,
+    "chatCount": 30,
+    "viewCount": 300
+  }
+}

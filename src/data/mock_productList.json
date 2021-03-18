@@ -1,0 +1,164 @@
+{
+  "data": [
+    {
+      "productId": 1,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616070742,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 2,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616031748,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 3,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071510,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 4,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071503,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 5,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071510,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 6,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071512,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 7,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071531,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 8,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071509,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 9,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071516,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 10,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071538,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 11,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071519,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 12,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071549,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 13,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071609,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 14,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071550,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 15,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616081539,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    },
+    {
+      "productId": 16,
+      "title": "컵세트",
+      "town": "대치4동",
+      "createdAt": 1616071539,
+      "likeCount": 23,
+      "price": 30000,
+      "chatCount": 30,
+      "imgUrl": "https://images.pexels.com/photos/821653/pexels-photo-821653.jpeg?cs=srgb&dl=pexels-alex-andrews-821653.jpg&fm=jpg"
+    }
+  ]
+}
