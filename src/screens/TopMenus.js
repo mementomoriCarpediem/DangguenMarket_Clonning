@@ -1,27 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Icon1 from 'react-native-vector-icons/Ionicons';
-import Icon2 from 'react-native-vector-icons/Entypo';
-import Icon3 from 'react-native-vector-icons/Octicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function TopMenus() {
+export default function TopMenus(props) {
+  // console.log(props);
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.sideContainer}>
         <Text style={styles.text}>대치 4동</Text>
-        <Icon2 name="chevron-small-down" size={20} />
+        <Icon name="chevron-down" size={20} />
       </TouchableOpacity>
 
       <View style={{ marginLeft: 'auto', flexWrap: 'wrap' }}>
         <TouchableOpacity>
-          <Icon1 style={styles.icon} name="ios-search-outline" size={30} />
+          <Icon style={styles.icon} name="ios-search-outline" size={30} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Icon3 style={styles.icon} name="settings" size={30} />
+          <Icon style={styles.icon} name="options" size={30} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Icon1
+          <Icon
             style={styles.icon}
             name="ios-notifications-outline"
             size={30}
