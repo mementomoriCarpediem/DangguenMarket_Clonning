@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,6 +25,14 @@ function App() {
   let [fontsLoaded] = useFonts({
     JejuMyeongjo: require('./assets/fonts/JejuMyeongjoOTF.otf'),
   });
+  // useEffect(() => {
+  //   loadFont();
+  // }, []);
+  // const loadFont = async () => {
+  //   await Expo.Font.loadAsync({
+  //     Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
+  //   });
+  // };
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -48,7 +56,11 @@ function App() {
                 title: '전화번호 인증',
                 headerBackTitleVisible: false,
                 headerLeft: () => (
-                  <TouchableOpacity onPress={() => navigation.goBack()}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.goBack();
+                    }}
+                  >
                     <Icon
                       name="md-arrow-back"
                       size={30}

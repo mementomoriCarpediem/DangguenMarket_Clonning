@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,10 +15,37 @@ import {
 } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import * as Location from 'expo-location';
+// import script from 'scriptjs';
+// import kakaoAppKey from '../constants/APIs/kakaoAppKey';
 
 export default function TownAuth() {
-  const Item = () => {};
-  const renderUnit = () => <Item />;
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
+
+  location &&
+    console.log(
+      'latitude ==>',
+      location.coords.latitude,
+      'longitude ==>',
+      location.coords.longitude
+    );
+
+  // const Item = () => {};
+  // const renderUnit = () => <Item />;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
