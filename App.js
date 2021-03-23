@@ -33,7 +33,7 @@ function App() {
     return (
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="townauth">
+          <Stack.Navigator initialRouteName="home">
             <Stack.Screen
               name="entry"
               component={Entry}

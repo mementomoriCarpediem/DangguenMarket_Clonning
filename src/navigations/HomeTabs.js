@@ -15,20 +15,20 @@ const Tab = createBottomTabNavigator();
 export default function HomeTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="home"
+      initialRouteName="홈"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
           // console.log(route);
-          if (route.name === 'home') {
+          if (route.name === '홈') {
             iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'townlife') {
+          } else if (route.name === '동네생활') {
             iconName = focused ? 'newspaper' : 'newspaper-outline';
-          } else if (route.name === 'aroundme') {
+          } else if (route.name === '내근처') {
             iconName = focused ? 'location' : 'location-outline';
-          } else if (route.name === 'chatting') {
+          } else if (route.name === '채팅') {
             iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
-          } else if (route.name === 'mypage') {
+          } else if (route.name === '나의당근') {
             iconName = focused ? 'person' : 'person-outline';
           }
           return <Icon name={iconName} size={23} color={'black'} />;
@@ -36,11 +36,11 @@ export default function HomeTabs() {
       })}
       tabBarOptions={{ labelStyle: { fontSize: 12, color: 'black' } }}
     >
-      <Tab.Screen name="home" title="홈" component={Home} />
-      <Tab.Screen name="townlife" title="동네생활" component={LocalLife} />
-      <Tab.Screen name="aroundme" tiltle="내근처" component={AroundMe} />
-      <Tab.Screen name="chatting" title="채팅" component={Chatting} />
-      <Tab.Screen name="mypage" title="나의 당근" component={MyPage} />
+      <Tab.Screen name="홈" component={Home} />
+      <Tab.Screen name="동네생활" component={LocalLife} />
+      <Tab.Screen name="내근처" component={AroundMe} />
+      <Tab.Screen name="채팅" component={Chatting} />
+      <Tab.Screen name="나의당근" component={MyPage} />
     </Tab.Navigator>
   );
 }
