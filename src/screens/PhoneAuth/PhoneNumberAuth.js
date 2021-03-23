@@ -1,28 +1,23 @@
 import React, { useRef, useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Platform,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
 import * as firebase from 'firebase';
 
 try {
-  firebase.initializeApp({
-    apiKey: 'AIzaSyBXlwd7uslDmgEZ9jZeECznooM1M4-_2qQ',
-    authDomain: 'dangguenmarketclonning.firebaseapp.com',
-    projectId: 'dangguenmarketclonning',
-    storageBucket: 'dangguenmarketclonning.appspot.com',
-    messagingSenderId: '42558418825',
-    appId: '1:42558418825:web:49ed049909f82c25f9fb58',
-  });
+  !firebase.apps.length
+    ? firebase.initializeApp({
+        apiKey: 'AIzaSyBXlwd7uslDmgEZ9jZeECznooM1M4-_2qQ',
+        authDomain: 'dangguenmarketclonning.firebaseapp.com',
+        projectId: 'dangguenmarketclonning',
+        storageBucket: 'dangguenmarketclonning.appspot.com',
+        messagingSenderId: '42558418825',
+        appId: '1:42558418825:web:49ed049909f82c25f9fb58',
+      })
+    : firebase.app();
 } catch (err) {
-  console.log(err);
+  console.log('err:', err);
 }
 
 export default function PhoneNumberAuth({ navigation }) {
@@ -35,14 +30,26 @@ export default function PhoneNumberAuth({ navigation }) {
     : undefined;
   const [message, showMessage] = useState(undefined);
 
-  console.log(message);
-
   return (
     <View style={styles.container}>
+      {message && (
+        <View
+          style={{
+            backgroundColor: 'black',
+            width: '100%',
+            height: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Text style={{ fontSize: 20, color: 'white' }}>{message}</Text>
+        </View>
+      )}
       <FirebaseRecaptchaVerifierModal
         ref={recaptchaVerifier}
         firebaseConfig={firebaseConfig}
         attemptInvisibleVerification={true}
+        // invisibleVerify={true}
       />
       <View style={styles.lockcontainer}>
         <Image
@@ -69,7 +76,7 @@ export default function PhoneNumberAuth({ navigation }) {
         autoCompleteType="tel"
         keyboardType="phone-pad"
         textContentType="telephoneNumber"
-        onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
+        onChangeText={(phoneNumber) => setPhoneNumber(`+82${phoneNumber}`)}
         value={verificationId && phoneNumber}
       />
 
@@ -90,11 +97,9 @@ export default function PhoneNumberAuth({ navigation }) {
               recaptchaVerifier.current
             );
             setVerificationId(verificationId);
-            showMessage({
-              text: 'Verification code has been sent to your phone.',
-            });
+            showMessage('인증문자가 문자 발송되었습니다.');
           } catch (err) {
-            showMessage({ text: `Error: ${err.message}`, color: 'red' });
+            console.log('error message:', err);
           }
         }}
       >
@@ -133,10 +138,10 @@ export default function PhoneNumberAuth({ navigation }) {
                   verificationCode
                 );
                 await firebase.auth().signInWithCredential(credential);
-                showMessage({ text: 'Phone authentication successful 👍' });
-                // navigation.navigate('townauth');
+                navigation.navigate('townauth');
               } catch (err) {
-                showMessage({ text: `Error: ${err.message}`, color: 'red' });
+                showMessage('인증번호를 잘못 입력하셨습니다.');
+                console.lor('errormsg: ', err);
               }
             }}
           >

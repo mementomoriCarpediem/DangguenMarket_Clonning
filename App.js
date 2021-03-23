@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Image } from 'react-native';
 import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,14 +26,6 @@ function App() {
   let [fontsLoaded] = useFonts({
     JejuMyeongjo: require('./assets/fonts/JejuMyeongjoOTF.otf'),
   });
-  // useEffect(() => {
-  //   loadFont();
-  // }, []);
-  // const loadFont = async () => {
-  //   await Expo.Font.loadAsync({
-  //     Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
-  //   });
-  // };
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -52,7 +45,7 @@ function App() {
             <Stack.Screen
               name="phonenumberauth"
               component={PhoneNumberAuth}
-              options={{
+              options={({ navigation }) => ({
                 title: '전화번호 인증',
                 headerBackTitleVisible: false,
                 headerLeft: () => (
@@ -61,14 +54,18 @@ function App() {
                       navigation.goBack();
                     }}
                   >
-                    <Icon
+                    <Image
+                      source={require('./assets/images/left-arrow.png')}
+                      style={{ width: 30, height: 30, marginLeft: 10 }}
+                    />
+                    {/* <Icon
                       name="md-arrow-back"
                       size={30}
                       style={{ marginLeft: 20 }}
-                    />
+                    /> */}
                   </TouchableOpacity>
                 ),
-              }}
+              })}
             />
             <Stack.Screen
               name="townauth"
