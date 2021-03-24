@@ -1,24 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Modal, Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-// import Icon from 'react-native-vector-icons/Ionicons';
+
 import { Ionicons } from '@expo/vector-icons';
-import * as Font from 'expo-font';
-// import AppLoading from 'expo-app-loading';
-import App from '../../../App';
 
 export default function TopMenus({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
 
-  // useEffect(async () => {
-  //   await Font.loadAsync({
-  //     Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
-  //   });
-  // }, []);
-
-  // if (!Ionicons) {
-  //   return <AppLoading />;
-  // } else {
   return (
     <>
       {modalVisible && <View style={styles.overlay} />}
@@ -55,8 +43,7 @@ export default function TopMenus({ navigation }) {
           }}
         >
           <Text style={styles.text}>대치 4동</Text>
-          {/* <Ionicons name="chevron-small-down" size={20} /> */}
-          <Button icon="account" title={'동네선택'} />
+          <Ionicons name="chevron-down" size={20} />
         </TouchableOpacity>
 
         <View style={{ marginLeft: 'auto', flexWrap: 'wrap' }}>
@@ -82,7 +69,6 @@ export default function TopMenus({ navigation }) {
     </>
   );
 }
-// }
 
 const styles = StyleSheet.create({
   container: {

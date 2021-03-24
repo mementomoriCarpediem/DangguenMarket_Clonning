@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-// import { Icon } from '@expo/vector-icons';
 
 export default function ProductList({ navigation }) {
   const [productListData, setProductListData] = useState('');

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
-import axios from 'axios';
-
 import {
   ScrollView,
   TextInput,
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import * as Location from 'expo-location';
+
+import axios from 'axios';
 
 // import kakaoAppKey from '../constants/APIs';
 // import mapAPIKey from '../constants/APIs';
@@ -41,13 +40,12 @@ export default function TownAuth({ navigation }) {
     setTownSearchText(townSearchText);
     setTownList([]);
 
-    console.log('SERadsfasdfa');
-
     axios
       .get(
-        `https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do?confmKey=${jusoAPI_Key}&keyword=삼성&resultType=json&countPerPage=30`
+        `https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do?confmKey=${jusoAPI_Key}&keyword=삼성&resultType=json&countPerPage=5`
       )
-      .then((res) => console.log('res', res));
+      .then((res) => console.log(res.response));
+    // .then((data) => console.log(data));
 
     // fetch(
     //   'https://jsonplaceholder.typicode.com/photos'

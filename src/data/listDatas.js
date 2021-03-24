@@ -17,7 +17,11 @@ export const categoryItems = [
 ];
 
 export const categoryListData = [
-  { id: 1, img: require('../../assets/images/tv.png'), text: '디지털/가전' },
+  {
+    id: 1,
+    img: require('../../assets/images/tv.png'),
+    text: '디지털/가전',
+  },
   {
     id: 2,
     img: require('../../assets/images/sofa.png'),
@@ -28,11 +32,7 @@ export const categoryListData = [
     img: require('../../assets/images/baby.png'),
     text: '유야동/유아도서',
   },
-  {
-    id: 4,
-    img: require('../../assets/images/pot.png'),
-    text: '생활/가공식품',
-  },
+  { id: 4, img: require('../../assets/images/pot.png'), text: '생활/가공식품' },
   {
     id: 5,
     img: require('../../assets/images/soccer.png'),

@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
 import { categoryItems } from '../data/listDatas';
 
 const listRenderUnit = ({ item }) => (
   <View style={{ width: 170 }}>
-    <CheckBox title={item.name} checked={true} />
+    <CheckBox title={item.name} />
   </View>
 );
 

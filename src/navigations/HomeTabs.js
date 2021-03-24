@@ -8,7 +8,6 @@ import LocalLife from '../screens/HomeTabs/LocalLife';
 import AroundMe from '../screens/HomeTabs/AroundMe';
 import Chatting from '../screens/HomeTabs/Chatting';
 import MyPage from '../screens/HomeTabs/MyPage';
-import TopMenus from '../screens/HomeTabs/TopMenus';
 
 const Tab = createBottomTabNavigator();
 

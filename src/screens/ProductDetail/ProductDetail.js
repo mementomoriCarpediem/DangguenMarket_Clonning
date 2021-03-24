@@ -31,14 +31,12 @@ export default function ProductDetail({ route, navigation }) {
     //     .then((data) => setProdcutDetailData(data));
   };
 
-  const Item = ({ url }) => (
+  const imageRenderUnit = ({ item }) => (
     <Image
-      source={{ uri: url }}
-      style={{ width: useWindowDimensions().width, height: 350 }}
+      source={{ uri: item.url }}
+      style={{ width: windowWidth, height: 350 }}
     />
   );
-
-  const imageRenderUnit = ({ item }) => <Item url={item.url} />;
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -131,9 +129,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginHorizontal: 10,
   },
-  // slideimage: {
-  //   height: 350,
-  // },
   sellerInfo: {
     alignItems: 'center',
     paddingHorizontal: 10,
