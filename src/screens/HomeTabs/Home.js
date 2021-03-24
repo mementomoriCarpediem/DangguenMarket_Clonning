@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+// import { Icon } from '@expo/vector-icons';
 
 export default function ProductList({ navigation }) {
   const [productListData, setProductListData] = useState('');
@@ -13,7 +14,7 @@ export default function ProductList({ navigation }) {
   }, []);
 
   const getListData = () => {
-    const data = require('../data/mock_productList.json');
+    const data = require('../../data/mock_productList.json');
     setProductListData(data.data);
 
     // fetch('../data/mock_productList.json')

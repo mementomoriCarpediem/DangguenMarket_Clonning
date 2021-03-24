@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  FlatList,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 
 import {
   ScrollView,
@@ -111,7 +104,11 @@ export default function TownAuth({ navigation }) {
         근처동네
       </Text>
       <ScrollView style={{ width: '100%' }}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('home');
+          }}
+        >
           {townList &&
             townList.map((town) => (
               <Text style={styles.townresult}>

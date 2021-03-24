@@ -9,16 +9,18 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-import Icon from 'react-native-vector-icons/Ionicons';
+// import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
 
 import Entry from './src/screens/Entry';
 import PhoneNumberAuth from './src/screens/PhoneAuth/PhoneNumberAuth';
-import townAuth from './src/screens/TownAuth';
+import TownAuth from './src/screens/TownAuth';
 import HomeTabs from './src/navigations/HomeTabs';
 import ProductDetail from './src/screens/ProductDetail/ProductDetail';
-import TopMenus from './src/screens/TopMenus';
-import keywordSearch from './src/screens/KeywordSearch';
-import categorySearch from './src/screens/CategorySearch';
+import TopMenus from './src/screens/HomeTabs/TopMenus';
+import KeywordSearch from './src/navigations/KeywordSearch';
+import CategorySearch from './src/screens/CategorySearch';
+import SearchHeader from './src/screens/SearchHeader';
 
 const Stack = createStackNavigator();
 
@@ -69,15 +71,15 @@ function App() {
             />
             <Stack.Screen
               name="townauth"
-              component={townAuth}
+              component={TownAuth}
               options={{ headerShown: false }}
             />
             <Stack.Screen
               name="home"
               component={HomeTabs}
-              options={{
-                headerTitle: (route) => <TopMenus {...route} />,
-              }}
+              options={({ navigation }) => ({
+                headerTitle: () => <TopMenus navigation={navigation} />,
+              })}
             />
             <Stack.Screen
               name="productDetail"
@@ -86,8 +88,26 @@ function App() {
                 headerShown: false,
               }}
             />
-            {/* <Stack.Screen name="keywordSearch" component={keywordSearch} />
-            <Stack.Screen name="categorySearch" component={categorySearch} /> */}
+            <Stack.Screen
+              name="keywordSearch"
+              component={KeywordSearch}
+              options={({ navigation, route }) => ({
+                headerLeft: () => {},
+                headerTitle: () => (
+                  <SearchHeader navigation={navigation} route={route} />
+                ),
+              })}
+            />
+            <Stack.Screen
+              name="categorySearch"
+              component={CategorySearch}
+              options={({ navigation, route }) => ({
+                headerLeft: () => {},
+                headerTitle: () => (
+                  <SearchHeader navigation={navigation} route={route} />
+                ),
+              })}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

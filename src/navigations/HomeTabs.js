@@ -3,12 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Home from '../screens/Home';
-import LocalLife from '../screens/LocalLife';
-import AroundMe from '../screens/AroundMe';
-import Chatting from '../screens/Chatting';
-import MyPage from '../screens/MyPage';
-import TopMenus from '../screens/TopMenus';
+import Home from '../screens/HomeTabs/Home';
+import LocalLife from '../screens/HomeTabs/LocalLife';
+import AroundMe from '../screens/HomeTabs/AroundMe';
+import Chatting from '../screens/HomeTabs/Chatting';
+import MyPage from '../screens/HomeTabs/MyPage';
+import TopMenus from '../screens/HomeTabs/TopMenus';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +19,6 @@ export default function HomeTabs() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-          // console.log(route);
           if (route.name === '홈') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === '동네생활') {
