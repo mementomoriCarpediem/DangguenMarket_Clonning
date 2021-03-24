@@ -17,14 +17,34 @@ export const categoryItems = [
 ];
 
 export const categoryListData = [
-  { id: 1, img: '../../../assets/images/tv.png', text: '디지털/가전' },
-  { id: 2, img: '../../../assets/images/sofa.png', text: '가구/인테리어' },
-  { id: 3, img: '../../../assets/images/baby.png', text: '유야동/유아도서' },
-  { id: 4, img: '../../../assets/images/pot.png', text: '생활/가공식품' },
-  { id: 5, img: '../../../assets/images/soccer.png', text: '스포츠/레저' },
-  { id: 6, img: '../../../assets/images/bag.png', text: '여성잡화' },
-  { id: 7, img: '../../../assets/images/dress.png', text: '여성의류' },
-  { id: 8, img: '../../../assets/images/shirts.png', text: '남성패션/잡화' },
+  { id: 1, img: require('../../assets/images/tv.png'), text: '디지털/가전' },
+  {
+    id: 2,
+    img: require('../../assets/images/sofa.png'),
+    text: '가구/인테리어',
+  },
+  {
+    id: 3,
+    img: require('../../assets/images/baby.png'),
+    text: '유야동/유아도서',
+  },
+  {
+    id: 4,
+    img: require('../../assets/images/pot.png'),
+    text: '생활/가공식품',
+  },
+  {
+    id: 5,
+    img: require('../../assets/images/soccer.png'),
+    text: '스포츠/레저',
+  },
+  { id: 6, img: require('../../assets/images/bag.png'), text: '여성잡화' },
+  { id: 7, img: require('../../assets/images/dress.png'), text: '여성의류' },
+  {
+    id: 8,
+    img: require('../../assets/images/shirts.png'),
+    text: '남성패션/잡화',
+  },
 ];
 
 export const popularKeyword = [

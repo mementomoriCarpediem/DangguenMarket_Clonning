@@ -25,11 +25,11 @@ import SearchHeader from './src/screens/SearchHeader';
 const Stack = createStackNavigator();
 
 function App() {
-  let [fontsLoaded] = useFonts({
+  const [loaded, error] = useFonts({
     JejuMyeongjo: require('./assets/fonts/JejuMyeongjoOTF.otf'),
   });
 
-  if (!fontsLoaded) {
+  if (!loaded) {
     return <AppLoading />;
   } else {
     return (

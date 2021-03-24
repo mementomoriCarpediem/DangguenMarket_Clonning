@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, Image, StyleSheet, Text, View } from 'react-native';
+import {
+  ScrollView,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -9,6 +16,7 @@ import DealFooter from './DealFooter';
 
 export default function ProductDetail({ route, navigation }) {
   const [productDetailData, setProdcutDetailData] = useState('');
+  const windowWidth = useWindowDimensions().width;
 
   useEffect(() => {
     getData();
@@ -24,7 +32,10 @@ export default function ProductDetail({ route, navigation }) {
   };
 
   const Item = ({ url }) => (
-    <Image source={{ uri: url }} style={styles.slideimage} />
+    <Image
+      source={{ uri: url }}
+      style={{ width: useWindowDimensions().width, height: 350 }}
+    />
   );
 
   const imageRenderUnit = ({ item }) => <Item url={item.url} />;
@@ -32,7 +43,7 @@ export default function ProductDetail({ route, navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView style={styles.container} invertStickyHeaders={true}>
-        <View style={styles.slidewrapper}>
+        <View>
           <FlatList
             data={productDetailData.images}
             renderItem={imageRenderUnit}
@@ -40,12 +51,13 @@ export default function ProductDetail({ route, navigation }) {
             horizontal={true}
             initialScrollIndex={0}
             showsHorizontalScrollIndicator={false}
+            pagingEnabled
           />
           <View style={styles.slideicons}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <Icon name="chevron-back-sharp" size={25} />
             </TouchableOpacity>
-            <View style={{ flexDirection: 'row', left: 280 }}>
+            <View style={{ flexDirection: 'row', left: 250 }}>
               <TouchableOpacity>
                 <Icon
                   name="share-outline"
@@ -112,7 +124,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: '100%',
   },
-  slidewrapper: {},
   slideicons: {
     position: 'absolute',
     width: 400,
@@ -120,10 +131,9 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginHorizontal: 10,
   },
-  slideimage: {
-    width: 380,
-    height: 350,
-  },
+  // slideimage: {
+  //   height: 350,
+  // },
   sellerInfo: {
     alignItems: 'center',
     paddingHorizontal: 10,

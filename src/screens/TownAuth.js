@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
+import axios from 'axios';
 
 import {
   ScrollView,
@@ -37,15 +38,24 @@ export default function TownAuth({ navigation }) {
   }, []);
 
   const searchTownByText = async (townSearchText) => {
-    await setTownSearchText(townSearchText);
-    await setTownList([]);
+    setTownSearchText(townSearchText);
+    setTownList([]);
 
-    await fetch(
-      `https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do?confmKey=${jusoAPI_Key}&keyword=삼성&resultType=json&countPerPage=30`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch(console.error);
+    console.log('SERadsfasdfa');
+
+    axios
+      .get(
+        `https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do?confmKey=${jusoAPI_Key}&keyword=삼성&resultType=json&countPerPage=30`
+      )
+      .then((res) => console.log('res', res));
+
+    // fetch(
+    //   'https://jsonplaceholder.typicode.com/photos'
+    // )
+    //   .then((res) => console.log('res', res))
+    //   .catch((e) => console.log('error', e));
+    // .then((data) => console.log('dasf', data))
+    // .catch(console.error);
   };
 
   // const showSearchedList = () => {}
@@ -64,7 +74,7 @@ export default function TownAuth({ navigation }) {
   };
 
   // console.log(location.coords.latitude, location.coords.longitude);
-  console.log(townSearchText);
+  // console.log(townSearchText);
 
   // const Item = ({}) => (<Text style={styles.townresult}>경기도 용인시 처인구 이동읍</Text>);
   // const renderUnit = ({item}) => <Item townName={townList}/>;
@@ -88,6 +98,7 @@ export default function TownAuth({ navigation }) {
       <TouchableOpacity
         style={styles.townsearchbutton}
         // onPress={() => searchTownByLocation(location)}
+        onPress={() => navigation.navigate('home')}
       >
         <Text style={{ fontSize: 15, fontWeight: '700', color: 'white' }}>
           현재위치로 찾기

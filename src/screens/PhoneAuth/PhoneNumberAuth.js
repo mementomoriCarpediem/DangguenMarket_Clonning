@@ -49,7 +49,7 @@ export default function PhoneNumberAuth({ navigation }) {
         ref={recaptchaVerifier}
         firebaseConfig={firebaseConfig}
         attemptInvisibleVerification={true}
-        // invisibleVerify={true}
+        invisibleVerify={true}
       />
       <View style={styles.lockcontainer}>
         <Image

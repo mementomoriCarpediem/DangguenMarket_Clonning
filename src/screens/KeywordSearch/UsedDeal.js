@@ -3,16 +3,19 @@ import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 
 import { categoryListData, popularKeyword } from '../../data/listDatas';
 
+// const image = require('../../../assets/images/tv.png');
+
 export default function UsedDeal() {
-  const categoryRenderUnit = ({ item }) => (
-    <View style={styles.categoryUnit}>
-      <Image
-        style={styles.categoryImage}
-        source={require('../../../assets/images/shirts.png')}
-      />
-      <Text style={styles.categoryText}>{item.text}</Text>
-    </View>
-  );
+  const categoryRenderUnit = ({ item }) => {
+    // const image = require(item.img);
+    console.log(item.img);
+    return (
+      <View style={styles.categoryUnit}>
+        <Image style={styles.categoryImage} source={item.img} />
+        <Text style={styles.categoryText}>{item.text}</Text>
+      </View>
+    );
+  };
 
   const keywordRenderUnit = ({ item }) => (
     <Text style={styles.keyword}>{item.keyword}</Text>

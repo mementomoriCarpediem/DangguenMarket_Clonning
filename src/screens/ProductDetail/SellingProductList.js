@@ -3,13 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 export default function SellingProductList() {
-  const Item = ({}) => {
-    <View>
-      <Image source={{ uri: '' }} />
-    </View>;
-  };
-
-  const rednerUnit = ({ item }) => <Item />;
+  const rednerUnit = ({ item }) => <Image />;
 
   return (
     <View style={styles.container}>
