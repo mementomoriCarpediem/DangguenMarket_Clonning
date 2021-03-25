@@ -1,12 +1,26 @@
 import React from 'react';
-import { SafeAreaView, TextInput, StyleSheet, Text, View } from 'react-native';
+import {
+  SafeAreaView,
+  TextInput,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function KeywordHeader({ navigation, route }) {
+  const windowWidth = useWindowDimensions().width;
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topContainer}>
-        <Icon name="arrow-back" size={30} onPress={() => navigation.goBack()} />
+    <SafeAreaView style={[styles.container, { width: windowWidth }]}>
+      <View style={[styles.topContainer, { width: windowWidth }]}>
+        <Icon
+          name="arrow-back"
+          style={{ left: windowWidth * 0.05 }}
+          size={30}
+          onPress={() => navigation.goBack()}
+        />
         {route.name === 'keywordSearch' && (
           <TextInput
             style={styles.keywordInput}
@@ -14,7 +28,9 @@ export default function KeywordHeader({ navigation, route }) {
           />
         )}
         {route.name === 'categorySearch' && (
-          <Text style={styles.categoryText}>관심카테고리 설정</Text>
+          <Text style={[styles.categoryText, { left: windowWidth * 0.25 }]}>
+            관심카테고리 설정
+          </Text>
         )}
       </View>
     </SafeAreaView>
@@ -24,18 +40,16 @@ export default function KeywordHeader({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    paddingHorizontal: 20,
+    // width: '100%',
     backgroundColor: 'white',
   },
   topContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   keywordInput: {
-    width: '90%',
-    marginLeft: 20,
+    width: '80%',
+    marginLeft: 30,
     height: 30,
     backgroundColor: 'lightgray',
     borderRadius: 10,
@@ -45,6 +59,5 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 18,
     fontWeight: '600',
-    textAlign: 'center',
   },
 });

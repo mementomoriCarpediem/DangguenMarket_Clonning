@@ -46,7 +46,7 @@ export default function TopMenus({ navigation }) {
           <Ionicons name="chevron-down" size={20} />
         </TouchableOpacity>
 
-        <View style={{ marginLeft: 'auto', flexWrap: 'wrap' }}>
+        <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity
             onPress={() => navigation.navigate('keywordSearch')}
           >
@@ -72,14 +72,13 @@ export default function TopMenus({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingHorizontal: 20,
   },
   sideContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -125,6 +124,7 @@ const styles = StyleSheet.create({
     height: 1000,
     backgroundColor: 'gray',
     opacity: 0.3,
+    zIndex: 10,
   },
   touchable: {
     marginTop: 10,

@@ -52,7 +52,7 @@ export default function TownAuth({ navigation }) {
 
   const searchRenderUnit = ({ item, index }) => (
     // n 번째와 n-1번째의 시군구 및 읍면동 명이 동일하면 skip 로직 추후 구현
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity onPress={() => navigation.navigate('home')}>
       <Text style={styles.townresult}>{`${item.sggNm} ${item.emdNm} ${
         item.rn || ''
       }`}</Text>

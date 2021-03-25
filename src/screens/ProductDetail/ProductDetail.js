@@ -25,10 +25,6 @@ export default function ProductDetail({ route, navigation }) {
   const getData = () => {
     const data = require('../../data/mock_productDetail.json');
     setProdcutDetailData(data.data);
-
-    //   fetch('route.params.')
-    //     .then((res) => res.json())
-    //     .then((data) => setProdcutDetailData(data));
   };
 
   const imageRenderUnit = ({ item }) => (

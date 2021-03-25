@@ -1,0 +1,240 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "sendingUserName": "꼼냥이",
+      "sendingUserProfileImage": "https://images.pexels.com/photos/3087904/pexels-photo-3087904.jpeg?cs=srgb&dl=pexels-%C5%9Fule-makaro%C4%9Flu-3087904.jpg&fm=jpg",
+      "sendingUserTemp": 36.7,
+      "town": "강남구 역삼1동",
+      "sendingMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 2,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 3,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 4,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ],
+      "replyMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "sendingUserName": "꼼냥이",
+      "sendingUserProfileImage": "https://images.pexels.com/photos/3087904/pexels-photo-3087904.jpeg?cs=srgb&dl=pexels-%C5%9Fule-makaro%C4%9Flu-3087904.jpg&fm=jpg",
+      "sendingUserTemp": 36.7,
+      "town": "강남구 역삼1동",
+      "sendingMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 2,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 3,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 4,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ],
+      "replyMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "sendingUserName": "꼼냥이",
+      "sendingUserProfileImage": "https://images.pexels.com/photos/3087904/pexels-photo-3087904.jpeg?cs=srgb&dl=pexels-%C5%9Fule-makaro%C4%9Flu-3087904.jpg&fm=jpg",
+      "sendingUserTemp": 36.7,
+      "town": "강남구 역삼1동",
+      "sendingMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 2,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 3,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 4,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ],
+      "replyMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "sendingUserName": "꼼냥이",
+      "sendingUserProfileImage": "https://images.pexels.com/photos/3087904/pexels-photo-3087904.jpeg?cs=srgb&dl=pexels-%C5%9Fule-makaro%C4%9Flu-3087904.jpg&fm=jpg",
+      "sendingUserTemp": 36.7,
+      "town": "강남구 역삼1동",
+      "sendingMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 2,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 3,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 4,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ],
+      "replyMsg": [
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        },
+        {
+          "id": 1,
+          "textAt": "2012-2-23/14:34:02",
+          "content": "안녕하세요",
+          "uploadImage": "https://images.pexels.com/photos/5277697/pexels-photo-5277697.jpeg?cs=srgb&dl=pexels-daniel-torobekov-5277697.jpg&fm=jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Image } from 'react-native';
 import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,15 +8,13 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-// import Icon from 'react-native-vector-icons/Ionicons';
-import { Ionicons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Entry from './src/screens/Entry';
 import PhoneNumberAuth from './src/screens/PhoneAuth/PhoneNumberAuth';
 import TownAuth from './src/screens/TownAuth';
 import HomeTabs from './src/navigations/HomeTabs';
 import ProductDetail from './src/screens/ProductDetail/ProductDetail';
-import TopMenus from './src/screens/HomeTabs/TopMenus';
 import KeywordSearch from './src/navigations/KeywordSearch';
 import CategorySearch from './src/screens/CategorySearch';
 import SearchHeader from './src/screens/SearchHeader';
@@ -56,15 +53,11 @@ function App() {
                       navigation.goBack();
                     }}
                   >
-                    <Image
-                      source={require('./assets/images/left-arrow.png')}
-                      style={{ width: 30, height: 30, marginLeft: 10 }}
-                    />
-                    {/* <Icon
+                    <Icon
                       name="md-arrow-back"
                       size={30}
                       style={{ marginLeft: 20 }}
-                    /> */}
+                    />
                   </TouchableOpacity>
                 ),
               })}
@@ -77,9 +70,12 @@ function App() {
             <Stack.Screen
               name="home"
               component={HomeTabs}
-              options={({ navigation }) => ({
-                headerTitle: () => <TopMenus navigation={navigation} />,
-              })}
+              options={{
+                headerShown: false,
+              }}
+              // options={({ navigation }) => ({
+              //   headerTitle: () => <TopMenus navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="productDetail"

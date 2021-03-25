@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
 import { categoryItems } from '../data/listDatas';
 
-const listRenderUnit = ({ item }) => (
-  <View style={{ width: 170 }}>
-    <CheckBox title={item.name} />
-  </View>
-);
-
 export default function CategorySearch() {
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  const listRenderUnit = ({ item, index }) => (
+    <View style={{ width: 170 }}>
+      <CheckBox
+        title={item.name}
+        checked={checkedItems.includes(index) ? true : false}
+        onPress={() => setCheckedItems(...checkedItems, index)}
+      />
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <Text style={styles.topText}>홈에서 보고싶지 않은 카테고리는 </Text>
