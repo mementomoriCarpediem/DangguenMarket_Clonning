@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
 import {
   ScrollView,
   TextInput,
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 
+import Icon from 'react-native-vector-icons/Ionicons';
 import * as Location from 'expo-location';
-
 import axios from 'axios';
 
-// import kakaoAppKey from '../constants/APIs';
-// import mapAPIKey from '../constants/APIs';
 import { jusoAPI_Key, googleAPI_Key } from '../constants/APIs';
 
 export default function TownAuth({ navigation }) {
   const [location, setLocation] = useState(null);
-  const [townSearchText, setTownSearchText] = useState(null);
   const [townList, setTownList] = useState([]);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -29,62 +26,44 @@ export default function TownAuth({ navigation }) {
       }
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
-      // console.log(Location.getPermissionsAsync());
     })();
-    // getTownByLocation();
-
-    // showSearchedList();
   }, []);
 
-  const searchTownByText = async (townSearchText) => {
-    setTownSearchText(townSearchText);
+  const searchTownByText = (townSearchText) => {
     setTownList([]);
 
     axios
       .get(
-        `https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do?confmKey=${jusoAPI_Key}&keyword=삼성&resultType=json&countPerPage=5`
+        `https://www.juso.go.kr/addrlink/addrLinkApi.do?confmKey=${jusoAPI_Key}&keyword=${townSearchText}&resultType=json&countPerPage=30`
       )
-      .then((res) => console.log(res.response));
-    // .then((data) => console.log(data));
-
-    // fetch(
-    //   'https://jsonplaceholder.typicode.com/photos'
-    // )
-    //   .then((res) => console.log('res', res))
-    //   .catch((e) => console.log('error', e));
-    // .then((data) => console.log('dasf', data))
-    // .catch(console.error);
+      .then((res) => setTownList([...res.data.results.juso]));
   };
-
-  // const showSearchedList = () => {}
+  console.log(townList);
 
   const getTownByLocation = () => {
-    fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location?.coords.latitude},${location?.coords.longitude}&key=${googleAPI_Key}&language=ko`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setTownList([...townList, data.results[0].formatted_address]);
-        // if (townList.find(data.results[0].formatted_address) === undefined) {
-        //   setTownList([...townList, data.results[0].formatted_address]);
-        // }
-      });
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location?.coords.latitude},${location?.coords.longitude}&key=${googleAPI_Key}&language=ko`
+      )
+      .then((res) =>
+        searchTownByText(res.data.results[2].address_components[1].long_name)
+      );
   };
 
-  // console.log(location.coords.latitude, location.coords.longitude);
-  // console.log(townSearchText);
+  const searchRenderUnit = ({ item, index }) => (
+    // n 번째와 n-1번째의 시군구 및 읍면동 명이 동일하면 skip 로직 추후 구현
+    <TouchableOpacity onPress={() => {}}>
+      <Text style={styles.townresult}>{`${item.sggNm} ${item.emdNm} ${
+        item.rn || ''
+      }`}</Text>
+    </TouchableOpacity>
+  );
 
-  // const Item = ({}) => (<Text style={styles.townresult}>경기도 용인시 처인구 이동읍</Text>);
-  // const renderUnit = ({item}) => <Item townName={townList}/>;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          {/* <Icon name="md-arrow-back" size={30} /> */}
-          <Image
-            source={require('../../assets/images/left-arrow.png')}
-            style={{ width: 30, height: 30 }}
-          />
+          <Icon name="md-arrow-back" size={30} />
         </TouchableOpacity>
         <TextInput
           style={styles.townsearch}
@@ -95,8 +74,7 @@ export default function TownAuth({ navigation }) {
 
       <TouchableOpacity
         style={styles.townsearchbutton}
-        // onPress={() => searchTownByLocation(location)}
-        onPress={() => navigation.navigate('home')}
+        onPress={() => getTownByLocation(location)}
       >
         <Text style={{ fontSize: 15, fontWeight: '700', color: 'white' }}>
           현재위치로 찾기
@@ -118,13 +96,13 @@ export default function TownAuth({ navigation }) {
             navigation.navigate('home');
           }}
         >
-          {townList &&
-            townList.map((town) => (
-              <Text style={styles.townresult}>
-                {town.split(' ').splice(2, 3).join(' ')}
-              </Text>
-            ))}
-          {/* <FlatList data={} renderItem={}/> => gps 위치 기반 주소 api 통신 response 적용*/}
+          {townList && (
+            <FlatList
+              data={townList}
+              renderItem={searchRenderUnit}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          )}
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
