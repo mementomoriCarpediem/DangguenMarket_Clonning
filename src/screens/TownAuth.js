@@ -38,7 +38,7 @@ export default function TownAuth({ navigation }) {
       )
       .then((res) => setTownList([...res.data.results.juso]));
   };
-  console.log(townList);
+  // console.log(townList);
 
   const getTownByLocation = () => {
     axios
@@ -52,7 +52,7 @@ export default function TownAuth({ navigation }) {
 
   const searchRenderUnit = ({ item, index }) => (
     // n 번째와 n-1번째의 시군구 및 읍면동 명이 동일하면 skip 로직 추후 구현
-    <TouchableOpacity onPress={() => navigation.navigate('home')}>
+    <TouchableOpacity onPress={() => navigation.navigate('topStacks')}>
       <Text style={styles.townresult}>{`${item.sggNm} ${item.emdNm} ${
         item.rn || ''
       }`}</Text>
@@ -91,11 +91,7 @@ export default function TownAuth({ navigation }) {
         근처동네
       </Text>
       <ScrollView style={{ width: '100%' }}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('home');
-          }}
-        >
+        <TouchableOpacity>
           {townList && (
             <FlatList
               data={townList}

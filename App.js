@@ -13,11 +13,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Entry from './src/screens/Entry';
 import PhoneNumberAuth from './src/screens/PhoneAuth/PhoneNumberAuth';
 import TownAuth from './src/screens/TownAuth';
-import HomeTabs from './src/navigations/HomeTabs';
 import ProductDetail from './src/screens/ProductDetail/ProductDetail';
 import KeywordSearch from './src/navigations/KeywordSearch';
 import CategorySearch from './src/screens/CategorySearch';
 import SearchHeader from './src/screens/SearchHeader';
+import TopStacks from './src/navigations/TopStacks';
 
 const Stack = createStackNavigator();
 
@@ -32,7 +32,7 @@ function App() {
     return (
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="home">
+          <Stack.Navigator initialRouteName="topStacks">
             <Stack.Screen
               name="entry"
               component={Entry}
@@ -68,14 +68,11 @@ function App() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="home"
-              component={HomeTabs}
+              name="topStacks"
+              component={TopStacks}
               options={{
                 headerShown: false,
               }}
-              // options={({ navigation }) => ({
-              //   headerTitle: () => <TopMenus navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="productDetail"

@@ -10,12 +10,19 @@ export default function CategorySearch() {
   const listRenderUnit = ({ item, index }) => (
     <View style={{ width: 170 }}>
       <CheckBox
+        id={index}
         title={item.name}
+        checkedColor="#EF904F"
+        uncheckedIcon="check-circle"
+        checkedIcon="check-circle"
+        onPress={() => {
+          setCheckedItems([...checkedItems, index]);
+        }}
         checked={checkedItems.includes(index) ? true : false}
-        onPress={() => setCheckedItems(...checkedItems, index)}
       />
     </View>
   );
+  console.log(checkedItems);
 
   return (
     <View style={styles.container}>

@@ -17,6 +17,7 @@ export default function Chatting({ navigation }) {
 
   useEffect(() => {
     getData();
+    // console.log(navigate('hometabs'));
   }, []);
 
   const getData = () => {
@@ -43,7 +44,9 @@ export default function Chatting({ navigation }) {
           justifyContent: 'flex-start',
           alignItems: 'center',
         }}
-        onPress={() => navigation.navigate('chattingRoom')}
+        onPress={() => {
+          navigation.navigate('chattingRoom');
+        }}
       >
         <Image
           style={styles.profileImage}
@@ -71,7 +74,7 @@ export default function Chatting({ navigation }) {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View
           style={{
             paddingHorizontal: 20,
@@ -88,7 +91,7 @@ export default function Chatting({ navigation }) {
           renderItem={renderUnit}
           keyExtractor={(item) => item.id}
         />
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

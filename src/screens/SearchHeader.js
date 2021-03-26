@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   TextInput,
@@ -7,10 +7,14 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function KeywordHeader({ navigation, route }) {
+export default function SearchHeader({ navigation, route }) {
+  const [searchKeyword, setSearchKeyword] = useState('');
   const windowWidth = useWindowDimensions().width;
+
+  console.log(searchKeyword);
 
   return (
     <SafeAreaView style={[styles.container, { width: windowWidth }]}>
@@ -25,6 +29,7 @@ export default function KeywordHeader({ navigation, route }) {
           <TextInput
             style={styles.keywordInput}
             placeholder={'검색어를 입력하세요'}
+            onChangeText={(text) => setSearchKeyword(text)}
           />
         )}
         {route.name === 'categorySearch' && (
@@ -46,9 +51,10 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    // justifyContent: 'space-around',
   },
   keywordInput: {
-    width: '80%',
+    width: '75%',
     marginLeft: 30,
     height: 30,
     backgroundColor: 'lightgray',

@@ -88,6 +88,7 @@ export default function ProductList({ navigation }) {
           </View>
         </View>
       </View>
+
       {isNewProductSearchClickd && productId === clickedProductId && (
         <View style={styles.newProductContainer}>
           <Image
@@ -108,7 +109,6 @@ export default function ProductList({ navigation }) {
       )}
     </>
   );
-  console.log(clickedProductId);
 
   const renderUnit = ({ item }) => (
     <Item
@@ -131,6 +131,12 @@ export default function ProductList({ navigation }) {
         renderItem={renderUnit}
         keyExtractor={(item) => item.productId}
       />
+      <TouchableOpacity
+        style={styles.createButton}
+        onPress={() => navigation.navigate('create')}
+      >
+        <Icon name="add" size={40} color={'white'} />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -150,7 +156,6 @@ const styles = StyleSheet.create({
   infoContainer: {
     width: 230,
   },
-  item: {},
   title: {
     fontSize: 20,
     marginBottom: 10,
@@ -201,5 +206,17 @@ const styles = StyleSheet.create({
   newProductPrice: {
     fontSize: 15,
     fontWeight: '600',
+  },
+  createButton: {
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 10,
+    right: 20,
+    backgroundColor: '#EF904F',
+    borderRadius: 50,
+    zIndex: 1000,
   },
 });

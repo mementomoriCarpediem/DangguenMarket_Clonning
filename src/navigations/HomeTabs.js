@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -9,17 +8,9 @@ import LocalLife from '../screens/HomeTabs/LocalLife';
 import AroundMe from '../screens/HomeTabs/AroundMe';
 import Chatting from '../screens/HomeTabs/Chatting/Chatting';
 import MyPage from '../screens/HomeTabs/MyPage';
-import ChattingStacks from './ChattingStacks';
 
-export default function HomeTabs() {
-  const [nowScreen, setNowScreen] = useState('');
-
+export default function HomeTabs({ navigation, route }) {
   const Tab = createBottomTabNavigator();
-
-  const getHeaderTitle = (route) => {
-    const routeName = getFocusedRouteNameFromRoute(route);
-    setNowScreen(routeName);
-  };
 
   return (
     <Tab.Navigator
@@ -46,7 +37,7 @@ export default function HomeTabs() {
       <Tab.Screen name="홈" component={Home} />
       <Tab.Screen name="동네생활" component={LocalLife} />
       <Tab.Screen name="내근처" component={AroundMe} />
-      <Tab.Screen name="채팅" component={ChattingStacks} />
+      <Tab.Screen name="채팅" component={Chatting} />
       <Tab.Screen name="나의당근" component={MyPage} />
     </Tab.Navigator>
   );
