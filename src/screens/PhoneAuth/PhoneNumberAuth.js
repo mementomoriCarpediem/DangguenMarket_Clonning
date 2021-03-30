@@ -4,6 +4,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
 import * as firebase from 'firebase';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 try {
   !firebase.apps.length
@@ -29,6 +31,13 @@ export default function PhoneNumberAuth({ navigation }) {
     ? firebase.app().options
     : undefined;
   const [message, showMessage] = useState(undefined);
+
+  const [token, setToken] = useState('');
+
+  // const getItem = async () => {
+  //   const token = await AsyncStorage.getItem('token');
+  // };
+  // console.log(getItem());
 
   return (
     <View style={styles.container}>
@@ -138,10 +147,23 @@ export default function PhoneNumberAuth({ navigation }) {
                   verificationCode
                 );
                 await firebase.auth().signInWithCredential(credential);
-                navigation.navigate('townauth');
+
+                await axios
+                  .post('http://10.58.5.86:8000/api/user/signin', {
+                    phone_number: phoneNumber,
+                  })
+                  .then(
+                    (res) => {
+                      AsyncStorage.setItem('token', res.data.token);
+                      setToken(res.data.token);
+                    }
+
+                    // console.log(res.data.token)
+                  )
+                  .then(navigation.navigate('townauth', { token: token }));
               } catch (err) {
                 showMessage('인증번호를 잘못 입력하셨습니다.');
-                console.lor('errormsg: ', err);
+                console.log('errormsg: ', err);
               }
             }}
           >

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Entry({ navigation }) {
+  useEffect(() => {
+    checkUserToken();
+  }, []);
+
+  const checkUserToken = async () => {
+    // await AsyncStorage.getItem('token').then((res) => console.log(res));
+    await AsyncStorage.removeItem('userToken');
+    // try {
+    //   const DangguenToken = await AsyncStorage.getItem('token');
+    //   if (DangguenToken !== null) {
+    //     navigation.navigate('topStacks', { userToken: DangguenToken });
+    //   }
+    // } catch {}
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.container}>

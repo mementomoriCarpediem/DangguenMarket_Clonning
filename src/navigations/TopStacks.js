@@ -6,9 +6,12 @@ import HomeTabs from './HomeTabs';
 import Create from '../screens/Create';
 import CategorySelect from '../screens/CategorySelect';
 
+// import AsyncStorage from './';
+
 const Stack = createStackNavigator();
 
-export default function ChattingStacks() {
+export default function ChattingStacks({ route }) {
+  // console.log(route.params.userToken);
   return (
     <Stack.Navigator headerMode={'none'} initialRouteName="hometabs">
       <Stack.Screen name="hometabs" component={HomeTabs} />

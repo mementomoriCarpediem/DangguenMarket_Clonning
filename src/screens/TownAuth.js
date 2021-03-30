@@ -12,10 +12,12 @@ import axios from 'axios';
 
 import { jusoAPI_Key, googleAPI_Key } from '../constants/APIs';
 
-export default function TownAuth({ navigation }) {
+export default function TownAuth({ navigation, route }) {
   const [location, setLocation] = useState(null);
   const [townList, setTownList] = useState([]);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  console.log(route.params.token);
 
   useEffect(() => {
     (async () => {
@@ -52,7 +54,22 @@ export default function TownAuth({ navigation }) {
 
   const searchRenderUnit = ({ item, index }) => (
     // n 번째와 n-1번째의 시군구 및 읍면동 명이 동일하면 skip 로직 추후 구현
-    <TouchableOpacity onPress={() => navigation.navigate('topStacks')}>
+    <TouchableOpacity
+      onPress={async () => {
+        await axios
+          .post(
+            'http://10.58.5.86:8000/api/user/address/update',
+            { name: `${item.sggNm} ${item.emdNm}` },
+            {
+              headers: {
+                Authorization: `JWT ${route.params.token}`,
+              },
+            }
+          )
+          // .then((res) => console.log(res));
+          .then(navigation.navigate('topStacks'));
+      }}
+    >
       <Text style={styles.townresult}>{`${item.sggNm} ${item.emdNm} ${
         item.rn || ''
       }`}</Text>

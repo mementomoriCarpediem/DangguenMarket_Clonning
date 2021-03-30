@@ -91,7 +91,7 @@ export default function Create({ navigation }) {
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.topContainer}>
-          <TouchableOpacity onPress={navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text style={styles.topSideText}>닫기</Text>
           </TouchableOpacity>
           <Text style={styles.topTitle}>중고거래 글쓰기</Text>
