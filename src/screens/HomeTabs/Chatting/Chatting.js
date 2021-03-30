@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   View,
-  ScrollView,
   useWindowDimensions,
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -89,7 +88,7 @@ export default function Chatting({ navigation }) {
         <FlatList
           data={chattingRoomInfo}
           renderItem={renderUnit}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
     </SafeAreaView>

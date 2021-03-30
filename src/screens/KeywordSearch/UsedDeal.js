@@ -32,7 +32,7 @@ export default function UsedDeal() {
           <FlatList
             data={categoryListData}
             renderItem={categoryRenderUnit}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             numColumns="4"
           />
         </View>
@@ -44,7 +44,7 @@ export default function UsedDeal() {
           <FlatList
             data={popularKeyword}
             renderItem={keywordRenderUnit}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             numColumns="4"
           />
         </Text>

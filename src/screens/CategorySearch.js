@@ -35,7 +35,7 @@ export default function CategorySearch() {
         <FlatList
           data={categoryItems}
           renderItem={listRenderUnit}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           numColumns="2"
         />
       </View>

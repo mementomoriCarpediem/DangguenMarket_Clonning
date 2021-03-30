@@ -41,7 +41,7 @@ export default function ProductDetail({ route, navigation }) {
           <FlatList
             data={productDetailData.images}
             renderItem={imageRenderUnit}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             horizontal={true}
             initialScrollIndex={0}
             showsHorizontalScrollIndicator={false}
