@@ -107,7 +107,7 @@ export default function TownAuth({ navigation, route }) {
       >
         근처동네
       </Text>
-      <ScrollView style={{ width: '100%' }}>
+      <View style={{ width: '100%' }}>
         <TouchableOpacity>
           {townList && (
             <FlatList
@@ -117,7 +117,7 @@ export default function TownAuth({ navigation, route }) {
             />
           )}
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

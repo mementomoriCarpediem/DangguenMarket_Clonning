@@ -129,7 +129,7 @@ export default function ProductList({ navigation }) {
       <FlatList
         data={productListData}
         renderItem={renderUnit}
-        keyExtractor={(item) => item.productId}
+        keyExtractor={(item) => item.productId.toString()}
       />
       <TouchableOpacity
         style={styles.createButton}
