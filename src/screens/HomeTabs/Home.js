@@ -6,8 +6,8 @@ import {
   View,
   FlatList,
   Image,
+  TouchableOpacity,
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import TopMenus from './TopMenus';
