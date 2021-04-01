@@ -4,8 +4,14 @@ import { CheckBox } from 'react-native-elements';
 
 import { categoryItems } from '../data/listDatas';
 
-export default function CategorySearch() {
+import { observer, inject } from 'mobx-react';
+import { observable } from 'mobx';
+
+function CategorySearch() {
   const [checkedItems, setCheckedItems] = useState([]);
+  console.log(store);
+
+  // console.log(checkedItems);
 
   const listRenderUnit = ({ item, index }) => (
     <View style={{ width: 170 }}>
@@ -22,8 +28,6 @@ export default function CategorySearch() {
       />
     </View>
   );
-  console.log(checkedItems);
-
   return (
     <View style={styles.container}>
       <Text style={styles.topText}>홈에서 보고싶지 않은 카테고리는 </Text>
@@ -42,6 +46,8 @@ export default function CategorySearch() {
     </View>
   );
 }
+
+export default observer(CategorySearch);
 
 const styles = StyleSheet.create({
   container: {
