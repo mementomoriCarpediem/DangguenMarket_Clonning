@@ -9,14 +9,16 @@ export default function Entry({ navigation }) {
   }, []);
 
   const checkUserToken = async () => {
-    // await AsyncStorage.getItem('token').then((res) => console.log(res));
-    await AsyncStorage.removeItem('userToken');
-    // try {
-    //   const DangguenToken = await AsyncStorage.getItem('token');
-    //   if (DangguenToken !== null) {
-    //     navigation.navigate('topStacks', { userToken: DangguenToken });
-    //   }
-    // } catch {}
+    await AsyncStorage.getItem('token').then((res) => console.log(res));
+    // await AsyncStorage.removeItem('userToken');
+    try {
+      const DangguenToken = await AsyncStorage.getItem('token');
+      if (DangguenToken !== null) {
+        navigation.navigate('topStacks', { userToken: DangguenToken });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

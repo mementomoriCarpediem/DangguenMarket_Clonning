@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, TextInput, StyleSheet, Text, View } from 'react-native';
+import { TextInput, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -88,80 +88,80 @@ export default function Create({ navigation }) {
   };
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <View style={styles.topContainer}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.topSideText}>닫기</Text>
-          </TouchableOpacity>
-          <Text style={styles.topTitle}>중고거래 글쓰기</Text>
-          <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-            <Text style={styles.topSideText}>완료</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity onPress={selectFile}>
-          <View style={styles.imageAttachConatainer}>
-            <Icon name="camera" color={'gray'} size={20} />
-            <Text>0/10</Text>
-          </View>
+    <View style={styles.container}>
+      <View style={styles.topContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.topSideText}>닫기</Text>
         </TouchableOpacity>
-        <Controller
-          control={control}
-          render={({ onChange, onBlur, value }) => (
-            <TextInput
-              style={styles.titleInput}
-              onBlur={onBlur}
-              onChangeText={(value) => onChange(value)}
-              value={value}
-              placeholder={'글 제목'}
-            />
-          )}
-          name="title"
-          rules={{ required: true }}
-        />
-        <TouchableOpacity
-          style={styles.categorySelectContainer}
-          onPress={() => navigation.navigate('categorySelect')}
-        >
-          <Text style={{ fontSize: 18 }}>카테고리 선택</Text>
-          <Icon name="chevron-forward" size={20} />
+        <Text style={styles.topTitle}>중고거래 글쓰기</Text>
+        <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+          <Text style={styles.topSideText}>완료</Text>
         </TouchableOpacity>
-        <Controller
-          control={control}
-          render={({ onChange, onBlur, value }) => (
-            <TextInput
-              style={styles.price}
-              onBlur={onBlur}
-              onChangeText={(value) => onChange(value)}
-              value={value}
-              placeholder={'₩ 가격입력(선택사항)'}
-            />
-          )}
-          name="price"
-        />
-        <Controller
-          control={control}
-          render={({ onChange, onBlur, value }) => (
-            <TextInput
-              style={styles.contents}
-              onBlur={onBlur}
-              onChangeText={(value) => onChange(value)}
-              value={value}
-              placeholder={
-                '남사면에 올릴 게시글 내용을 작성해주세요.\n(가품 및 판매 금지 품목은 게시가 제한될수 있어요.'
-              }
-            />
-          )}
-          name="contents"
-          rules={{ required: true }}
-        />
       </View>
-    </SafeAreaView>
+      <TouchableOpacity onPress={selectFile}>
+        <View style={styles.imageAttachConatainer}>
+          <Icon name="camera" color={'gray'} size={20} />
+          <Text>0/10</Text>
+        </View>
+      </TouchableOpacity>
+      <Controller
+        control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={styles.titleInput}
+            onBlur={onBlur}
+            onChangeText={(value) => onChange(value)}
+            value={value}
+            placeholder={'글 제목'}
+          />
+        )}
+        name="title"
+        rules={{ required: true }}
+      />
+      <TouchableOpacity
+        style={styles.categorySelectContainer}
+        onPress={() => navigation.navigate('categorySelect')}
+      >
+        <Text style={{ fontSize: 18 }}>카테고리 선택</Text>
+        <Icon name="chevron-forward" size={20} />
+      </TouchableOpacity>
+      <Controller
+        control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={styles.price}
+            onBlur={onBlur}
+            onChangeText={(value) => onChange(value)}
+            value={value}
+            placeholder={'₩ 가격입력(선택사항)'}
+          />
+        )}
+        name="price"
+      />
+      <Controller
+        control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={styles.contents}
+            onBlur={onBlur}
+            onChangeText={(value) => onChange(value)}
+            value={value}
+            placeholder={
+              '남사면에 올릴 게시글 내용을 작성해주세요.\n(가품 및 판매 금지 품목은 게시가 제한될수 있어요.'
+            }
+          />
+        )}
+        name="contents"
+        rules={{ required: true }}
+      />
+    </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 15,
+    paddingTop: 50,
+    paddingHorizontal: 10,
+    backgroundColor: 'white',
   },
   topContainer: {
     flexDirection: 'row',
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   },
   contents: {
     width: '100%',
-    height: 400,
+    height: '100%',
     justifyContent: 'flex-start',
     fontSize: 15,
   },

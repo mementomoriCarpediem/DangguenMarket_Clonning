@@ -7,10 +7,12 @@ import * as firebase from 'firebase';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { firebaseAPI_Key, signIn } from '../../constants/APIs';
+
 try {
   !firebase.apps.length
     ? firebase.initializeApp({
-        apiKey: 'AIzaSyBXlwd7uslDmgEZ9jZeECznooM1M4-_2qQ',
+        apiKey: firebaseAPI_Key,
         authDomain: 'dangguenmarketclonning.firebaseapp.com',
         projectId: 'dangguenmarketclonning',
         storageBucket: 'dangguenmarketclonning.appspot.com',
@@ -27,6 +29,7 @@ export default function PhoneNumberAuth({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState();
   const [verificationId, setVerificationId] = useState();
   const [verificationCode, setVerificationCode] = useState();
+
   const firebaseConfig = firebase.apps.length
     ? firebase.app().options
     : undefined;
@@ -34,10 +37,7 @@ export default function PhoneNumberAuth({ navigation }) {
 
   const [token, setToken] = useState('');
 
-  // const getItem = async () => {
-  //   const token = await AsyncStorage.getItem('token');
-  // };
-  // console.log(getItem());
+  console.log(token);
 
   return (
     <View style={styles.container}>
@@ -149,7 +149,7 @@ export default function PhoneNumberAuth({ navigation }) {
                 await firebase.auth().signInWithCredential(credential);
 
                 await axios
-                  .post('http://10.58.5.86:8000/api/user/signin', {
+                  .post(signIn, {
                     phone_number: phoneNumber,
                   })
                   .then(

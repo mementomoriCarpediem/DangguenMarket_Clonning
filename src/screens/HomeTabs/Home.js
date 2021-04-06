@@ -9,10 +9,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import axios from 'axios';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import TopMenus from './TopMenus';
 
-export default function ProductList({ navigation }) {
+import { productList } from '../../constants/APIs';
+
+export default function ProductList({ navigation, route }) {
   const [productListData, setProductListData] = useState('');
   const [isNewProductSearchClickd, setIsNewProductSearchClicked] = useState(
     false
@@ -20,12 +24,20 @@ export default function ProductList({ navigation }) {
   const [clickedProductId, setClickedProducId] = useState('');
   const now = Math.round(Date.now() / 1000);
 
+  console.log(route);
+
   useEffect(() => {
     getListData();
   }, []);
 
-  const getListData = () => {
-    const data = require('../../data/mock_productList.json');
+  const getListData = async () => {
+    // const data = require('../../data/mock_productList.json');
+    await axios(productList, {
+      // headers: {
+      // Authorization: `JWT ${route.params.token}`,
+      // },
+    });
+
     setProductListData(data.data);
   };
 
