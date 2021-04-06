@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import TopMenus from './TopMenus';
@@ -17,14 +18,12 @@ import TopMenus from './TopMenus';
 import { productList } from '../../constants/APIs';
 
 export default function ProductList({ navigation, route }) {
-  const [productListData, setProductListData] = useState('');
+  const [productListData, setProductListData] = useState([]);
   const [isNewProductSearchClickd, setIsNewProductSearchClicked] = useState(
     false
   );
   const [clickedProductId, setClickedProducId] = useState('');
   const now = Math.round(Date.now() / 1000);
-
-  console.log(route);
 
   useEffect(() => {
     getListData();
@@ -32,13 +31,14 @@ export default function ProductList({ navigation, route }) {
 
   const getListData = async () => {
     // const data = require('../../data/mock_productList.json');
-    await axios(productList, {
-      // headers: {
-      // Authorization: `JWT ${route.params.token}`,
-      // },
-    });
+    await AsyncStorage.getItem('token').then((res) => console.log(res));
+    const token = await AsyncStorage.getItem('token');
 
-    setProductListData(data.data);
+    await axios(productList, {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    }).then((data) => setProductListData([...data.data]));
   };
 
   const Item = ({
@@ -125,13 +125,13 @@ export default function ProductList({ navigation, route }) {
   const renderUnit = ({ item }) => (
     <Item
       title={item.title}
-      image={item.imgUrl}
-      town={item.town}
-      createdAt={item.createdAt}
+      image={item.post_image.url}
+      town={item.address}
+      createdAt={item.created_at}
       price={item.price}
-      likeCount={item.likeCount}
-      chatCount={item.chatCount}
-      productId={item.productId}
+      likeCount={item.like_count}
+      chatCount={item.chat_count}
+      productId={item.id}
     />
   );
 
@@ -141,7 +141,7 @@ export default function ProductList({ navigation, route }) {
       <FlatList
         data={productListData}
         renderItem={renderUnit}
-        keyExtractor={(item) => item.productId.toString()}
+        keyExtractor={(item) => item.productId}
       />
       <TouchableOpacity
         style={styles.createButton}

@@ -7,6 +7,9 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+
+import axios from 'axios';
+
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -14,21 +17,32 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SellingProductList from './SellingProductList';
 import DealFooter from './DealFooter';
 
+import { productDetail } from '../../constants/APIs';
+
 export default function ProductDetail({ route, navigation }) {
-  const [productDetailData, setProdcutDetailData] = useState('');
+  const [productDetailData, setProductDetailData] = useState([]);
   const windowWidth = useWindowDimensions().width;
+
+  // console.log(route.params.id);
 
   useEffect(() => {
     getData();
   }, []);
 
-  const getData = () => {
-    const data = require('../../data/mock_productDetail.json');
-    setProdcutDetailData(data.data);
+  const getData = async () => {
+    // const data = require('../../data/mock_productDetail.json');
+
+    await axios(productDetail + route.params.id).then((data) =>
+      // console.log(data.data)
+      setProductDetailData(data.data)
+    );
   };
 
-  const imageRenderUnit = ({ item }) => (
+  console.log(productDetailData);
+
+  const imageRenderUnit = ({ item, index }) => (
     <Image
+      key={index}
       source={{ uri: item.url }}
       style={{ width: windowWidth, height: 350 }}
     />
@@ -41,7 +55,7 @@ export default function ProductDetail({ route, navigation }) {
           <FlatList
             data={productDetailData.images}
             renderItem={imageRenderUnit}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             horizontal={true}
             initialScrollIndex={0}
             showsHorizontalScrollIndicator={false}
@@ -67,18 +81,20 @@ export default function ProductDetail({ route, navigation }) {
         </View>
         <View style={styles.sellerInfo}>
           <Image
-            source={{ uri: productDetailData.profileImage }}
+            source={{ uri: productDetailData.writer_profile_image }}
             style={styles.profile}
           />
           <View style={{ marginLeft: 10 }}>
-            <Text style={styles.nickname}>{productDetailData.createdBy}</Text>
+            <Text style={styles.nickname}>
+              {productDetailData.writer_nickname}
+            </Text>
             <Text style={{ fontSize: 12, marginTop: 5 }}>
-              {productDetailData.town}
+              {productDetailData.address}
             </Text>
           </View>
           <View style={{ left: 130 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={styles.temp}>{productDetailData.mannerTemp} ℃</Text>
+              <Text style={styles.temp}>43.5 ℃</Text>
               <Text style={styles.faceIcon}>😃</Text>
             </View>
             <Text style={styles.mannerText}>매너온도</Text>
@@ -87,28 +103,30 @@ export default function ProductDetail({ route, navigation }) {
         <View style={styles.description}>
           <Text style={styles.title}>{productDetailData.title}</Text>
           <View style={{ flexDirection: 'row' }}>
-            <Text style={styles.cateTime}>{productDetailData.category}</Text>
-            <Text style={styles.cateTime}>{productDetailData.createdAt}</Text>
+            <Text style={styles.cateTime}>{productDetailData.subcategory}</Text>
+            <Text style={styles.cateTime}>{productDetailData.created_at}</Text>
           </View>
           <Text style={{ fontSize: 15, marginBottom: 20, lineHeight: 22 }}>
-            {productDetailData.description}
+            {productDetailData.introduction}
           </Text>
           <View style={{ flexDirection: 'row' }}>
             <Text style={styles.chatlikeview}>
-              채팅{productDetailData.chatCount}•
+              채팅{productDetailData.chat_count}•
             </Text>
             <Text style={styles.chatlikeview}>
-              관심{productDetailData.likeCount}•
+              관심{productDetailData.like_count}•
             </Text>
             <Text style={styles.chatlikeview}>
-              조회{productDetailData.viewCount}
+              조회{productDetailData.view_count}
             </Text>
           </View>
         </View>
         {/* user에 대한 data를 넘기기(user nickname, 다른 상품 리스트 정보) */}
         <SellingProductList />
       </ScrollView>
-      <DealFooter price={productDetailData.price} />
+      <DealFooter
+        price={Number(productDetailData.price?.split('.')[0]).toLocaleString()}
+      />
     </View>
   );
 }
