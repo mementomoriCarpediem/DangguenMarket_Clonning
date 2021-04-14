@@ -31,15 +31,21 @@ export default function ProductList({ navigation, route }) {
 
   const getListData = async () => {
     // const data = require('../../data/mock_productList.json');
-    await AsyncStorage.getItem('token').then((res) => console.log(res));
+    // await AsyncStorage.getItem('token').then((res) => console.log(res));
     const token = await AsyncStorage.getItem('token');
 
-    await axios(productList, {
-      headers: {
-        Authorization: `JWT ${token}`,
-      },
-    }).then((data) => setProductListData([...data.data]));
+    try {
+      await axios(productList, {
+        headers: {
+          Authorization: `JWT ${token}`,
+        },
+      }).then((data) => setProductListData([...data.data]));
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  console.log(productListData);
 
   const Item = ({
     title,
@@ -81,7 +87,7 @@ export default function ProductList({ navigation, route }) {
             </Text>
           </View>
           <Text name="price" style={styles.price}>
-            {price.toLocaleString()}원
+            {Number(price.split('.')[0]).toLocaleString()}원
           </Text>
           <View style={styles.icons}>
             <TouchableOpacity

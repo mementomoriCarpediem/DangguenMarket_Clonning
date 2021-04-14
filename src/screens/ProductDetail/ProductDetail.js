@@ -8,11 +8,9 @@ import {
   useWindowDimensions,
 } from 'react-native';
 
-import axios from 'axios';
-
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-
 import Icon from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
 
 import SellingProductList from './SellingProductList';
 import DealFooter from './DealFooter';

@@ -36,8 +36,9 @@ export default function PhoneNumberAuth({ navigation }) {
   const [message, showMessage] = useState(undefined);
 
   const [token, setToken] = useState('');
+  const [userId, setUserId] = useState('');
 
-  console.log(token);
+  // console.log(token);
 
   return (
     <View style={styles.container}>
@@ -152,15 +153,18 @@ export default function PhoneNumberAuth({ navigation }) {
                   .post(signIn, {
                     phone_number: phoneNumber,
                   })
+                  .then((res) => {
+                    AsyncStorage.setItem('token', res.data.token);
+                    AsyncStorage.setItem('id', res.data.token);
+                    setToken(res.data.token);
+                    setUserId(res.data.id);
+                  })
                   .then(
-                    (res) => {
-                      AsyncStorage.setItem('token', res.data.token);
-                      setToken(res.data.token);
-                    }
-
-                    // console.log(res.data.token)
-                  )
-                  .then(navigation.navigate('townauth', { token: token }));
+                    navigation.navigate('townauth', {
+                      token: token,
+                      userId: userId,
+                    })
+                  );
               } catch (err) {
                 showMessage('인증번호를 잘못 입력하셨습니다.');
                 console.log('errormsg: ', err);

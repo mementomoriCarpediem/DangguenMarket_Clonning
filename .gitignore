@@ -8,7 +8,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-APIs.js
+APIs.*
+관련영상/*
 
 # macOS
 .DS_Store

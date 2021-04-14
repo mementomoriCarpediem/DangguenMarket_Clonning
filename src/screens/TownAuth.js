@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import * as Location from 'expo-location';
 import axios from 'axios';
 
-import { jusoAPI_Key, googleAPI_Key, userAddress } from '../constants/APIs';
+import { jusoAPI_Key, googleAPI_Key, user } from '../constants/APIs';
 
 export default function TownAuth({ navigation, route }) {
   const [location, setLocation] = useState(null);
@@ -58,7 +58,7 @@ export default function TownAuth({ navigation, route }) {
       onPress={async () => {
         await axios
           .post(
-            userAddress,
+            user,
             { name: `${item.sggNm} ${item.emdNm}` },
             {
               headers: {
