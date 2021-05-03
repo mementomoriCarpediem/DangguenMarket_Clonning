@@ -1,4 +1,4 @@
-# 당근마켓 클로닝 프로젝트(React Native)
+# 당근마켓 구현 프로젝트(React Native)
 
 ![대표이미지](https://media.vlpt.us/images/mementomori/post/64932843-5014-4267-9319-1ca4728c9b32/1.gif)
 
